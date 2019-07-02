@@ -42,6 +42,15 @@
           }],
           "tql": "SELECT * FROM slack.post_chat_message\n  WHERE $body=(SELECT {\n  \t'link_names' : true,\n    'channel' : @userid,\n  \t'username' : 'ClipIt',\n    'attachments' : [\n     {\n       'title': 'Message clipped!',\n       -- This should be the link in the ClipIt web app\n       'title_link': @url,\n       'fields': [\n         {\n           'title': 'Message',\n           'value': @message\n         },\n         {\n           'title': 'Posted by',\n           'value': @poster,\n           'short': true\n         },\n         {\n           'title': 'Importance',\n           'value': @importance,\n           'short': true\n         },\n       ],\n     },\n   ]\n  })\n"
         }
+      }, {
+        "id": "id_to_name",
+        "tql": {
+          "parameters": [{
+            "name": "id",
+            "type": "STRING"
+          }],
+          "tql": "SELECT user.name FROM slack.get_users_info\n  WHERE user=@id\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
+        }
       }],
       "javascriptAPIVersion": "3",
       "source": "src",
