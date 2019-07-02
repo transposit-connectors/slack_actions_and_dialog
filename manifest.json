@@ -1,6 +1,10 @@
 {
   "v2": {
     "transposit": {
+      "dependencies": [{
+        "name": "transposit/slack:v1.*.*",
+        "alias": "slack"
+      }],
       "operations": [{
         "id": "hello_world",
         "description": "Returns \"Hello, world\" in different languages",
