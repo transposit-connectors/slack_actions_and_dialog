@@ -6,22 +6,6 @@
         "alias": "slack"
       }],
       "operations": [{
-        "id": "webhook",
-        "function": {
-          "parameters": [{
-            "name": "http_event",
-            "default": {
-              "text": "{\"http_method\": \"GET\", \"query_parameters\": {}, \"headers\": {}, \"body\": \"\"}"
-            },
-            "type": "OBJECT"
-          }],
-          "js": "webhook.js"
-        },
-        "access": {
-          "requireApiKey": true,
-          "webhook": true
-        }
-      }, {
         "id": "post_confirmation",
         "tql": {
           "parameters": [{
@@ -50,6 +34,49 @@
             "type": "STRING"
           }],
           "tql": "SELECT user.name FROM slack.get_users_info\n  WHERE user=@id\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
+        }
+      }, {
+        "id": "open_dialog",
+        "tql": {
+          "parameters": [{
+            "name": "token",
+            "type": "STRING"
+          }, {
+            "name": "message",
+            "type": "STRING"
+          }, {
+            "name": "name",
+            "type": "STRING"
+          }],
+          "tql": "SELECT * FROM slack.open_dialog\n  WHERE $body=(SELECT {\n    'dialog' : {\n      'title': 'Save it to ClipIt!',\n      'callback_id': 'clipit',\n      'submit_label': 'ClipIt',\n      'elements': [\n         {\n           'label': 'Message Text',\n           'type': 'textarea',\n           'name': 'message',\n           'value': @message\n         },\n         {\n           'label': 'Posted by',\n           'type': 'text',\n           'name': 'send_by',\n           'value': @name\n         },\n         {\n           'label': 'Importance',\n           'type': 'select',\n           'name': 'importance',\n           'value': 'Medium 💎',\n           'options': [\n             { 'label': 'High', value: 'High 💎💎✨' },\n             { 'label': 'Medium', value: 'Medium 💎' },\n             { 'label': 'Low', value: 'Low ⚪️' }\n           ],\n         },\n      ]\n    },\n    'trigger_id' : @token\n  })\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
+        }
+      }, {
+        "id": "clipit_dialog",
+        "function": {
+          "parameters": [{
+            "name": "http_event",
+            "default": {
+              "text": "{\"http_method\": \"GET\", \"query_parameters\": {}, \"headers\": {}, \"body\": \"\"}"
+            },
+            "type": "OBJECT"
+          }],
+          "js": "webhook.js"
+        },
+        "access": {
+          "requireApiKey": true,
+          "webhook": true
+        }
+      }, {
+        "id": "clipit_confirmation",
+        "function": {
+          "parameters": [{
+            "name": "http_event",
+            "default": {
+              "text": "{\"http_method\": \"GET\", \"query_parameters\": {}, \"headers\": {}, \"body\": \"\"}"
+            },
+            "type": "OBJECT"
+          }],
+          "js": "clipit_confirmation.js"
         }
       }],
       "javascriptAPIVersion": "3",

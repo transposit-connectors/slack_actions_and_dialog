@@ -10,7 +10,7 @@
     };
   }
   else {
-    api.run('this.open_dialog', {token: body.token, message: body.message.text, name: api.run('this.id_to_name',{id: body.message.user})[0].name});
+    api.run('this.post_confirmation', {userid: body.user.id, message: body.message.text, url: `http://example.com/${body.user.name}/clip`, poster: api.run('this.id_to_name',{id: body.message.user})[0].name, importance: 'High'});
   }
   return { status_code: 200 };
 }
