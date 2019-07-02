@@ -1,5 +1,6 @@
 ({ http_event }) => {
-  let body = http_event.body;
+  let qs = require('qs.js');
+  let body = JSON.parse(qs.parse(http_event.body).payload);
   if (body.challenge) {
     // https://api.slack.com/events/url_verification
 	return {
@@ -8,5 +9,8 @@
       body: body.challenge
     };
   }
-  return ; { status_code: 200 };
+  else {
+    api.run('this.post_confirmation', {userid: body.user.id, message: body.message.text, url: `http://example.com/${body.user.name}/clip`, poster: body.message.user, importance: 'High'});
+  }
+  return body; //{ status_code: 200 };
 }

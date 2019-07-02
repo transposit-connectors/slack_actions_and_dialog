@@ -21,6 +21,27 @@
           "requireApiKey": true,
           "webhook": true
         }
+      }, {
+        "id": "post_confirmation",
+        "tql": {
+          "parameters": [{
+            "name": "userid",
+            "type": "STRING"
+          }, {
+            "name": "message",
+            "type": "STRING"
+          }, {
+            "name": "url",
+            "type": "STRING"
+          }, {
+            "name": "poster",
+            "type": "STRING"
+          }, {
+            "name": "importance",
+            "type": "STRING"
+          }],
+          "tql": "SELECT * FROM slack.post_chat_message\n  WHERE $body=(SELECT {\n  \t'link_names' : true,\n    'channel' : @userid,\n  \t'username' : 'ClipIt',\n    'attachments' : [\n     {\n       'title': 'Message clipped!',\n       -- This should be the link in the ClipIt web app\n       'title_link': @url,\n       'fields': [\n         {\n           'title': 'Message',\n           'value': @message\n         },\n         {\n           'title': 'Posted by',\n           'value': @poster,\n           'short': true\n         },\n         {\n           'title': 'Importance',\n           'value': @importance,\n           'short': true\n         },\n       ],\n     },\n   ]\n  })\n"
+        }
       }],
       "javascriptAPIVersion": "3",
       "source": "src",
