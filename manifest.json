@@ -77,6 +77,10 @@
             "type": "OBJECT"
           }],
           "js": "clipit_confirmation.js"
+        },
+        "access": {
+          "requireApiKey": true,
+          "webhook": true
         }
       }],
       "javascriptAPIVersion": "3",
