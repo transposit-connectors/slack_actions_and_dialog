@@ -86,6 +86,19 @@
           "webhook": true
         }
       }],
+      "dataConnections": [{
+        "ref": "slackbot.raw",
+        "overrides": {
+          "swagger": {
+            "oauthConfig": {
+              "scope": "bot,commands,chat:write:bot,users:read",
+              "accessTokenPath": "bot.access_token"
+            },
+            "executionLimits": {
+            }
+          }
+        }
+      }],
       "javascriptAPIVersion": "3",
       "source": "src",
       "userSettingsDisplay": "GENERATED"
