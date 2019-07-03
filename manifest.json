@@ -27,7 +27,7 @@
             "name": "importance",
             "type": "STRING"
           }],
-          "tql": "SELECT * FROM slack.post_chat_message\n  WHERE $body=(SELECT {\n  \t'link_names' : true,\n    'channel' : @userid,\n  \t'as_user' : true,\n    'attachments' : [\n     {\n       'title': 'Message clipped!',\n       -- This should be the link in the ClipIt web app\n       'title_link': @url,\n       'fields': [\n         {\n           'title': 'Message',\n           'value': @message\n         },\n         {\n           'title': 'Posted by',\n           'value': @poster,\n           'short': true\n         },\n         {\n           'title': 'Importance',\n           'value': @importance,\n           'short': true\n         },\n       ],\n     },\n   ]\n  })\n"
+          "tql": "SELECT * FROM slackbot.post_chat_message\n  WHERE $body=(SELECT {\n  \t'link_names' : true,\n    'channel' : @userid,\n  \t'as_user' : true,\n    'attachments' : [\n     {\n       'title': 'Message clipped!',\n       -- This should be the link in the ClipIt web app\n       'title_link': @url,\n       'fields': [\n         {\n           'title': 'Message',\n           'value': @message\n         },\n         {\n           'title': 'Posted by',\n           'value': @poster,\n           'short': true\n         },\n         {\n           'title': 'Importance',\n           'value': @importance,\n           'short': true\n         },\n       ],\n     },\n   ]\n  })\n"
         }
       }, {
         "id": "id_to_name",
@@ -36,7 +36,7 @@
             "name": "id",
             "type": "STRING"
           }],
-          "tql": "SELECT user.name FROM slack.get_users_info\n  WHERE user=@id\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
+          "tql": "SELECT user.name FROM slackbot.get_users_info\n  WHERE user=@id\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
         }
       }, {
         "id": "open_dialog",
@@ -51,7 +51,7 @@
             "name": "name",
             "type": "STRING"
           }],
-          "tql": "SELECT * FROM slack.open_dialog\n  WHERE $body=(SELECT {\n    'dialog' : {\n      'title': 'Save it to ClipIt!',\n      'callback_id': 'clipit',\n      'submit_label': 'ClipIt',\n      'elements': [\n         {\n           'label': 'Message Text',\n           'type': 'textarea',\n           'name': 'message',\n           'value': @message\n         },\n         {\n           'label': 'Posted by',\n           'type': 'text',\n           'name': 'send_by',\n           'value': @name\n         },\n         {\n           'label': 'Importance',\n           'type': 'select',\n           'name': 'importance',\n           'value': 'Medium 💎',\n           'options': [\n             { 'label': 'High', value: 'High 💎💎✨' },\n             { 'label': 'Medium', value: 'Medium 💎' },\n             { 'label': 'Low', value: 'Low ⚪️' }\n           ],\n         },\n      ]\n    },\n    'trigger_id' : @token\n  })\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
+          "tql": "SELECT * FROM slackbot.open_dialog\n  WHERE $body=(SELECT {\n    'dialog' : {\n      'title': 'Save it to ClipIt!',\n      'callback_id': 'clipit',\n      'submit_label': 'ClipIt',\n      'elements': [\n         {\n           'label': 'Message Text',\n           'type': 'textarea',\n           'name': 'message',\n           'value': @message\n         },\n         {\n           'label': 'Posted by',\n           'type': 'text',\n           'name': 'send_by',\n           'value': @name\n         },\n         {\n           'label': 'Importance',\n           'type': 'select',\n           'name': 'importance',\n           'value': 'Medium 💎',\n           'options': [\n             { 'label': 'High', value: 'High 💎💎✨' },\n             { 'label': 'Medium', value: 'Medium 💎' },\n             { 'label': 'Low', value: 'Low ⚪️' }\n           ],\n         },\n      ]\n    },\n    'trigger_id' : @token\n  })\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
         }
       }, {
         "id": "clipit_dialog",
