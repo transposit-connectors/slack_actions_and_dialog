@@ -39,7 +39,7 @@
         "id": "open_dialog",
         "tql": {
           "parameters": [{
-            "name": "token",
+            "name": "trigger_id",
             "type": "STRING"
           }, {
             "name": "message",
