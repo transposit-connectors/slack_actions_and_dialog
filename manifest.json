@@ -92,7 +92,7 @@
           "swagger": {
             "oauthConfig": {
               "scope": "bot,commands,chat:write:bot,users:read",
-              "accessTokenPath": "bot.access_token"
+              "accessTokenPath": "bot.bot_access_token"
             },
             "executionLimits": {
             }
