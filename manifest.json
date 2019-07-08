@@ -60,6 +60,15 @@
           "requireApiKey": true,
           "webhook": true
         }
+      }, {
+        "id": "id_to_name",
+        "tql": {
+          "parameters": [{
+            "name": "user",
+            "type": "STRING"
+          }],
+          "tql": "SELECT * FROM slack.get_users_info\n  WHERE user=@user\n"
+        }
       }],
       "dataConnections": [{
         "ref": "slackbot.raw",
