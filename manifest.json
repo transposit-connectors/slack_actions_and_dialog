@@ -30,15 +30,6 @@
           "tql": "SELECT * FROM slackbot.post_chat_message\n  WHERE $body=(SELECT {\n  \t'link_names' : true,\n    'channel' : @userid,\n  \t'as_user' : true,\n    'attachments' : [\n     {\n       'title': 'Message clipped!',\n       -- This should be the link in the ClipIt web app\n       'title_link': @url,\n       'fields': [\n         {\n           'title': 'Message',\n           'value': @message\n         },\n         {\n           'title': 'Posted by',\n           'value': @poster,\n           'short': true\n         },\n         {\n           'title': 'Importance',\n           'value': @importance,\n           'short': true\n         },\n       ],\n     },\n   ]\n  })\n"
         }
       }, {
-        "id": "id_to_name",
-        "tql": {
-          "parameters": [{
-            "name": "id",
-            "type": "STRING"
-          }],
-          "tql": "SELECT user.name FROM slackbot.get_users_info\n  WHERE user=@id\n"
-        }
-      }, {
         "id": "open_dialog",
         "tql": {
           "parameters": [{
