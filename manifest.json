@@ -67,7 +67,7 @@
             "name": "user",
             "type": "STRING"
           }],
-          "tql": "SELECT user.name FROM slack.get_users_info\n  WHERE user=@user\n"
+          "tql": "SELECT user FROM slack.get_users_info\n  WHERE user=@user\n"
         }
       }],
       "dataConnections": [{
