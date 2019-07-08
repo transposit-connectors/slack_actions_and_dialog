@@ -36,7 +36,7 @@
             "name": "id",
             "type": "STRING"
           }],
-          "tql": "SELECT user.name FROM slackbot.get_users_info\n  WHERE user=@id\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
+          "tql": "SELECT user.name FROM slackbot.get_users_info\n  WHERE user=@id\n"
         }
       }, {
         "id": "open_dialog",
