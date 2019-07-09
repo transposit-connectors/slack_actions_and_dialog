@@ -36,10 +36,13 @@
             "name": "trigger_id",
             "type": "STRING"
           }, {
-            "name": "text",
+            "name": "message",
+            "type": "STRING"
+          }, {
+            "name": "name",
             "type": "STRING"
           }],
-          "tql": "SELECT * FROM slackbot.open_dialog\n  WHERE $body=(SELECT {\n    'dialog' : {\n      'title': 'Submit a helpdesk ticket',\n      'callback_id': 'submit-ticket',\n      'submit_label': 'Submit',\n      'elements': [\n        {\n          'label': 'Title',\n          'type': 'text',\n          'name': 'title',\n          'value': @text,\n          'hint': '30 second summary of the problem',\n        },\n        {\n          'label': 'Description',\n          'type': 'textarea',\n          'name': 'description',\n          'optional': true,\n        },\n        {\n          'label': 'Urgency',\n          'type': 'select',\n          'name': 'urgency',\n          'options': [\n            { 'label': 'Low', 'value': 'Low' },\n            { 'label': 'Medium', 'value': 'Medium' },\n            { 'label': 'High', 'value': 'High' },\n          ],\n        },\n      ]\n    },\n    'trigger_id' : @trigger_id\n  })\n"
+          "tql": "SELECT * FROM slackbot.open_dialog\n  WHERE $body=(SELECT {\n    'dialog' : {\n      'title': 'Save it to ClipIt!',\n      'callback_id': 'clipit',\n      'submit_label': 'ClipIt',\n      'elements': [\n         {\n           'label': 'Message Text',\n           'type': 'textarea',\n           'name': 'message',\n           'value': @message\n         },\n         {\n           'label': 'Posted by',\n           'type': 'text',\n           'name': 'send_by',\n           'value': @name\n         },\n         {\n           'label': 'Importance',\n           'type': 'select',\n           'name': 'importance',\n           'value': 'Medium',\n           'options': [\n             { 'label': 'High', 'value': 'High' },\n             { 'label': 'Medium', 'value': 'Medium' },\n             { 'label': 'Low', 'value': 'Low' }\n           ],\n         },\n      ]\n    },\n    'trigger_id' : @trigger_id\n  })\n"
         }
       }, {
         "id": "clipit",
