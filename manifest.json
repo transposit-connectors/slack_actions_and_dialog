@@ -7,6 +7,9 @@
       }, {
         "name": "transposit/slack:v1.*.*",
         "alias": "slackbot"
+      }, {
+        "name": "transposit/airtable:v2.*.*",
+        "alias": "airtable"
       }],
       "operations": [{
         "id": "post_confirmation",
