@@ -30,7 +30,7 @@ Once a user finalize the form and submit, the app DMs the user with the confirma
 
 ## Setup
 
-### Create a Slack app
+#### Create a Slack app
 
 1. Create an app at https://api.slack.com/apps
 2. Go to Bot Users and click "Add a Bot User" to create a, app bot. Save the change.
@@ -59,7 +59,7 @@ Once a user finalize the form and submit, the app DMs the user with the confirma
    - `create_record` baseId
    - `get_records` baseId
 
-#### Add a Action
+#### Add an Action
 
 1. Go back to the app settings and click on **Interactive Components**.
 2. Click "Enable Interactive Components" button:
