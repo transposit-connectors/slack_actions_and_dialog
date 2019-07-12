@@ -7,7 +7,7 @@
   else {
     api.run('this.create_record', {message: body.submission.message, poster: body.submission.send_by, importance: body.submission.importance})
     //Find the entry to set the url
-    let entry = api.run('this.get_records').pop().id;
+    let entry = api.run('this.get_records')[0].id;
     let url = `https://airtable.com/tbljGpXAuVv4AhDwT/viwbw9dJQtaUQdswj/${entry}?blocks=hide`;
     api.run('this.post_confirmation', {userid: body.user.id, message: body.submission.message, url: url, poster: body.submission.send_by, importance: body.submission.importance});
   }
