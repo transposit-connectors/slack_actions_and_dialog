@@ -41,7 +41,7 @@ Once a user finalize the form and submit, the app DMs the user with the confirma
 4. Add https://accounts.transposit.com/oauth/v2/handle-redirect as a Redirect URI.
 5. Click 'Save Changes' and install the app
 
-### Create your Database in Airtable
+#### Create your Database in Airtable
 
 1. Add a new base in Airtable. If you are new to Airtable, check out their [Support Center](https://support.airtable.com/hc/en-us).
 2. Modify your table with the name `ClipIt` and
