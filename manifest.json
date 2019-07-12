@@ -87,6 +87,11 @@
           }],
           "tql": "SELECT * FROM airtable.create_record\n  WHERE baseId='app3FMdIzTaAmw0eg'\n  AND table='ClipIt'\n  AND $body=(SELECT {\n    'fields' : {message: @message, poster: @poster, importance: @importance }\n  })\n"
         }
+      }, {
+        "id": "get_records",
+        "tql": {
+          "tql": "SELECT * FROM airtable.get_records\n  WHERE baseId='app3FMdIzTaAmw0eg'\n  AND table='ClipIt'\n"
+        }
       }],
       "dataConnections": [{
         "ref": "slackbot.raw",
