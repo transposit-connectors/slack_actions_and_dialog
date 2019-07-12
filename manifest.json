@@ -90,7 +90,7 @@
       }, {
         "id": "get_records",
         "tql": {
-          "tql": "SELECT * FROM airtable.get_records\n  WHERE baseId='app3FMdIzTaAmw0eg'\n  AND table='ClipIt'\n"
+          "tql": "SELECT id FROM airtable.get_records\n  WHERE baseId='app3FMdIzTaAmw0eg'\n  AND table='ClipIt'\n"
         }
       }],
       "dataConnections": [{

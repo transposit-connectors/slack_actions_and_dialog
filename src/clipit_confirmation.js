@@ -6,7 +6,7 @@
   }
   else {
     //Find the entry to set the url
-    let entry = api.run('this.get_records', {id: body.user.id}).pop().id;
+    let entry = api.run('this.get_records').pop().id;
     let url = `https://airtable.com/tbljGpXAuVv4AhDwT/viwbw9dJQtaUQdswj/${entry}?blocks=hide`;
     api.run('this.post_confirmation', {userid: body.user.id, message: body.submission.message, url: url, poster: body.user.name, importance: body.submission.importance});
   }
