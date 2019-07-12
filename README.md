@@ -6,7 +6,7 @@ By registering your app's capabilities as message actions, users can pick and ch
 
 ## Creating "ClipIt" app using an action and a dialog
 
-![App icon](images/icon_small.png) This fictional Slack app, "ClipIt" allows users to "clip" a message posted on Slack by using the actions to export the message to JSON to be used in the external 3rd party app/service, let's say, "ClipIt web app".
+This fictional Slack app, "ClipIt" allows users to "clip" a message posted on Slack by using the actions to export the message to JSON to be used in the external 3rd party app/service, let's say, "ClipIt web app".
 
 ### Developer Use-Cases
 
