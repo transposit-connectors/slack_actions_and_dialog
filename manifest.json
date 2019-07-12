@@ -72,6 +72,21 @@
           }],
           "tql": "SELECT user.name FROM slack.get_users_info\n  WHERE user=@user\n"
         }
+      }, {
+        "id": "create_record",
+        "tql": {
+          "parameters": [{
+            "name": "message",
+            "type": "STRING"
+          }, {
+            "name": "poster",
+            "type": "STRING"
+          }, {
+            "name": "importance",
+            "type": "STRING"
+          }],
+          "tql": "SELECT * FROM airtable.create_record\n  WHERE baseId='app3FMdIzTaAmw0eg'\n  AND table='ClipIt'\n  AND $body=(SELECT {\n    'fields' : {message: @message, poster: @poster, importance: @importance }\n  })\n"
+        }
       }],
       "dataConnections": [{
         "ref": "slackbot.raw",
