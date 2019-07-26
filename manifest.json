@@ -85,7 +85,7 @@
             "name": "importance",
             "type": "STRING"
           }],
-          "tql": "SELECT * FROM airtable.create_record\n  WHERE baseId=@baseId\t\t\t\t\t-- Be sure to set this to your Airtable BaseId in environment variables\n  AND table='ClipIt'\n  AND $body=(SELECT {\n    'fields' : {message: @message, poster: @poster, importance: @importance }\n  })\n"
+          "tql": "SELECT * FROM airtable.create_record\n  WHERE baseId=@baseId\t\t\t\t\t-- Be sure to set this to your Airtable BaseId in environment variables\n  AND table='ClipIt'\n  AND $body=(SELECT {\n    'fields' : {message: @message,\n             \tposter: @poster,\n             \timportance: @importance\n               }\n  })\n"
         }
       }],
       "dataConnections": [{
