@@ -85,12 +85,7 @@
             "name": "importance",
             "type": "STRING"
           }],
-          "tql": "SELECT * FROM airtable.create_record\n  WHERE baseId='app3FMdIzTaAmw0eg'\t\t-- Change this to your airtable baseId\n  AND table='ClipIt'\n  AND $body=(SELECT {\n    'fields' : {message: @message, poster: @poster, importance: @importance }\n  })\n"
-        }
-      }, {
-        "id": "get_records",
-        "tql": {
-          "tql": "SELECT id FROM airtable.get_records\n  WHERE baseId='app3FMdIzTaAmw0eg'\t\t-- Change this to your airtable baseId\n  AND table='ClipIt'\n"
+          "tql": "SELECT * FROM airtable.create_record\n  WHERE baseId=@baseId\t\t\t\t\t-- Be sure to set this to your Airtable BaseId in environment variables\n  AND table='ClipIt'\n  AND $body=(SELECT {\n    'fields' : {message: @message, poster: @poster, importance: @importance }\n  })\n"
         }
       }],
       "dataConnections": [{
@@ -108,12 +103,7 @@
       }],
       "javascriptAPIVersion": "3",
       "source": "src",
-      "userSettingsDisplay": "GENERATED",
-      "appSettings": [{
-        "name": "airtable_baseId",
-        "description": "The Airtable base ID. This can be found as part of the API documentation URL. Go to https://airtable.com/api and select the base you're interested in, then find the base ID in the resulting URL: https://airtable.com/[baseId]/api/docs.",
-        "type": "STRING"
-      }]
+      "userSettingsDisplay": "GENERATED"
     }
   }
 }
