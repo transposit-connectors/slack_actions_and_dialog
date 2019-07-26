@@ -108,6 +108,11 @@
         "name": "baseId",
         "description": "The Airtable base ID. This can be found as part of the API documentation URL. Go to https://airtable.com/api and select the base you're interested in, then find the base ID in the resulting URL: https://airtable.com/[baseId]/api/docs.",
         "type": "STRING"
+      }, {
+        "name": "url",
+        "description": "The url that directs you to the clip",
+        "type": "STRING",
+        "default": "https://example.com/item"
       }]
     }
   }
