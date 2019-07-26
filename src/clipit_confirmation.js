@@ -1,6 +1,5 @@
 ({ http_event }) => {
-  let qs = require('qs.js');
-  let body = JSON.parse(qs.parse(http_event.body).payload);
+  let body = JSON.parse(http_event.parsed_body.payload);
   if (body.message) {
     api.run('this.open_dialog', {trigger_id: body.trigger_id,
                                  message: body.message.text,
