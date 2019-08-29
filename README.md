@@ -1,6 +1,6 @@
 # Slack Actions and Dialog
 
-> _Updated July 2019: This are specific instructions for use in Transposit. For other methods, check the Slack API website._
+> _Updated July 2019: These are specific instructions for use in Transposit. For other methods, check the Slack API website._
 
 By registering your app's capabilities as message actions, users can pick and choose messages to send to your app so you can do something useful with them. Store these messages in a virtual trapper keeper, feed them to your internal markov chain bot, or file away information about an important lead.
 
