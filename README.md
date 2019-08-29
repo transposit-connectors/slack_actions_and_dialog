@@ -51,13 +51,14 @@ Once a user finalize the form and submit, the app DMs the user with the confirma
 
 #### Fork in Transposit
 
-1. [Fork this app on Transposit](https://console.transposit.com/t/transposit-sample/slack_actions_and_dialog?readme=true)
-2. Authenticate your API token with Slack
-3. Authenticate slackbot's API token with the Client iD in your Slack App under Authentication
-4. Change all the Airtable specific strings to those matching your credentials
-   - `clipit` url
-   - `create_record` baseId
-   - `get_records` baseId
+1. [Fork this app on Transposit](https://console.transposit.com/t/transposit-sample/slack_actions_and_dialog?fork=true)
+2. Configure your Slack App's connection to Transposit:
+
+   1. Find your Client ID and Secret in your Slack app under **Basic Information > App Credentials**.
+   2. In your Transposit app, go to **Data connections > Slack > Authentication** and change the values to your Slack app's Client ID and Secret.
+
+3. Add Airtable and Slack's keys to production under **Deploy > Production Keys** and follow the instructions.
+4. Authenticate the Airtable [environment variables](https://www.transposit.com/docs/building/environment-variables/) in Transposit under **Deploy > Environment Variables**.
 
 #### Add an Action
 
@@ -76,8 +77,6 @@ Once a user finalize the form and submit, the app DMs the user with the confirma
 `clipit`: The operation that is called when you call Clipit.
 
 `create_record`: Saves the Clip to an Airtable project.
-
-`get_records`: Returns a list of entries in Airtable for the URL.
 
 `id_to_name`: A helper API call to convert an ID to a name.
 
