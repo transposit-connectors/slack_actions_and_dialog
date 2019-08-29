@@ -1,3 +1,4 @@
+# Slack Actions and Dialog
 # Message Action and Dialog Blueprint
 
 > _Updated July 2019: This are specific instructions for use in Transposit. For other methods, check the Slack API website._
