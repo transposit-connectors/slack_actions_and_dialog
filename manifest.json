@@ -57,7 +57,8 @@
             },
             "type": "OBJECT"
           }],
-          "js": "clipit_confirmation.js"
+          "js": "clipit_confirmation.js",
+          "lang": "js"
         },
         "access": {
           "requireApiKey": true,
@@ -114,6 +115,8 @@
         "type": "STRING",
         "default": "https://example.com/item"
       }]
-    }
+    },
+    "description": "A Transposit port of the Slack blueprint to create a Clipit extension",
+    "displayName": "Slack Actions and Dialog"
   }
 }
